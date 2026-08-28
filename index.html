@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fieldmouse Works — Open tools for closed systems</title>
+<meta name="description" content="Fieldmouse Works builds open-source software for ecosystems that are expensive, restrictive, difficult to leave, or designed around permanent vendor dependence.">
+<meta property="og:title" content="Fieldmouse Works">
+<meta property="og:description" content="Open tools for closed systems.">
+<meta property="og:image" content="https://fieldmouseworks.github.io/assets/og-image.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" href="assets/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <a class="brand" href="#top" aria-label="Fieldmouse Works, home">
+    <img src="assets/mark-reversed.png" alt="" width="40" height="40">
+    <span>Fieldmouse<br>Works</span>
+  </a>
+  <nav aria-label="Primary">
+    <a href="#projects">Projects</a>
+    <a href="#name">The name</a>
+    <a href="https://github.com/FieldmouseWorks" rel="me">GitHub <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="shaft" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <h1 id="hero-title">
+        <span>Open tools</span>
+        <span>for closed</span>
+        <span>systems.</span>
+      </h1>
+      <p class="lede">
+        Fieldmouse Works builds open-source software for ecosystems that are
+        expensive, restrictive, difficult to leave, or designed around
+        permanent vendor dependence. The goal is practical: you should be able
+        to run the software, understand it, move your data, and keep operating
+        on your own terms.
+      </p>
+      <p class="hero-links">
+        <a class="button" href="https://github.com/FieldmouseWorks">See the repositories <span aria-hidden="true">↗</span></a>
+      </p>
+    </div>
+    <img class="hero-mark" src="assets/mark-reversed.png" alt="The Fieldmouse Works mark: a field mouse on a rock, looking up into a shaft of light." width="800" height="800">
+  </section>
+
+  <section class="projects" id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="eyebrow">Current projects</h2>
+
+    <article class="project">
+      <header>
+        <h3><a href="https://github.com/FieldmouseWorks/Conary">Conary</a></h3>
+        <dl class="meta">
+          <div><dt>Language</dt><dd>Rust</dd></div>
+          <div><dt>License</dt><dd>MIT</dd></div>
+          <div><dt>Status</dt><dd class="status">early preview</dd></div>
+        </dl>
+      </header>
+      <p>
+        A cross-distro Linux package manager that installs RPM, DEB, and Arch
+        packages across Fedora, Ubuntu, and Arch while preserving each
+        format's lifecycle semantics.
+      </p>
+      <p>
+        Conary runs those formats through one atomic, content-addressed
+        transaction model with history, rollback, and immutable system
+        generations. The maintainer-operated
+        <a href="https://remi.conary.io">Remi service</a> provides package
+        conversion and metadata.
+      </p>
+      <p class="caution">Early preview: use a VM or a non-critical host.</p>
+      <a class="repo-link" href="https://github.com/FieldmouseWorks/Conary">FieldmouseWorks/Conary <span aria-hidden="true">↗</span></a>
+    </article>
+
+    <article class="project">
+      <header>
+        <h3><a href="https://github.com/FieldmouseWorks/consolebook">Consolebook</a></h3>
+        <dl class="meta">
+          <div><dt>Language</dt><dd>Rust</dd></div>
+          <div><dt>License</dt><dd>AGPL-3.0</dd></div>
+          <div><dt>Status</dt><dd class="status">pre-alpha</dd></div>
+        </dl>
+      </header>
+      <p>
+        Self-hosted training-record software for emergency communications,
+        designed around versioned programs, immutable finalized records,
+        acknowledgments, lawful disposition, recovery, and portable exports.
+      </p>
+      <p>
+        Consolebook is an open alternative to closed public-safety training
+        and employee-record systems, with agency-owned data and self-hosting
+        as first-class requirements.
+      </p>
+      <p class="caution">Pre-alpha: design and buildable scaffold.</p>
+      <a class="repo-link" href="https://github.com/FieldmouseWorks/consolebook">FieldmouseWorks/consolebook <span aria-hidden="true">↗</span></a>
+    </article>
+
+    <p class="supporting">
+      Other repositories hold supporting libraries and archived experiments
+      used by the projects above, such as
+      <a href="https://github.com/FieldmouseWorks/rpm-rs">rpm-rs</a>, a pure
+      Rust library for working with RPM files.
+    </p>
+  </section>
+
+  <section class="name" id="name" aria-labelledby="name-title">
+    <h2 id="name-title" class="eyebrow">About the name</h2>
+    <blockquote>
+      <p>
+        Fieldmouse Works is named for the small creature willing to take on
+        something much larger than itself. That is a useful model for the
+        work here: find the closed system, understand what it actually does,
+        and build the open door.
+      </p>
+    </blockquote>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p>
+    Built by <a href="https://github.com/TusanHomichi">Peter Permenter</a>,
+    a systems and backend engineer focused on explicit state, reproducible
+    behavior, recovery, portability, and software that stays operable
+    without a permanent vendor relationship.
+  </p>
+  <p class="links">
+    <a href="https://github.com/FieldmouseWorks">github.com/FieldmouseWorks</a>
+    <a href="https://conary.io">conary.io</a>
+  </p>
+  <p class="fine">Project documentation and contribution routes live in each repository.</p>
+</footer>
+
+</body>
+</html>

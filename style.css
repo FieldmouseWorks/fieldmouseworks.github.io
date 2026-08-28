@@ -1,0 +1,277 @@
+/* Fieldmouse Works — organization landing page
+   Palette and type are derived from the monochrome mark: ink ground,
+   one shaft of paper-coloured light, straw-gold used only for state. */
+
+:root {
+  --ink: #0b0b0b;
+  --ink-2: #171716;
+  --graphite: #3a3a38;
+  --ash: #9c9a93;
+  --paper: #ede9e0;
+  --straw: #c9a24a;
+
+  --display: "Big Shoulders Display", "Oswald", "Arial Narrow", sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --measure: 34rem;
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --shaft-angle: 34deg;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { color-scheme: dark; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--straw); }
+a:focus-visible { outline: 2px solid var(--straw); outline-offset: 3px; }
+img { display: block; max-width: 100%; height: auto; }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem var(--gutter);
+  border-bottom: 1px solid var(--ink-2);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  line-height: 0.95;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.brand img { width: 40px; height: 40px; }
+
+.masthead nav { display: flex; gap: 1.5rem; }
+.masthead nav a {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  text-decoration: none;
+  color: var(--ash);
+}
+.masthead nav a:hover { color: var(--straw); }
+
+/* ---------- hero: the light shaft ---------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: clamp(3rem, 8vh, 6rem) var(--gutter) clamp(3rem, 8vh, 6rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  column-gap: var(--gutter);
+}
+
+/* The shaft is the diagonal slash from the mark, scaled to the page.
+   It opens on load, from the top-right, like a door. */
+.shaft {
+  position: absolute;
+  z-index: 0;
+  top: -40%;
+  right: 12%;
+  width: clamp(14rem, 28vw, 24rem);
+  height: 190%;
+  background: var(--paper);
+  transform-origin: top center;
+  transform: rotate(var(--shaft-angle)) scaleX(1);
+  animation: open 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.15s;
+}
+
+@keyframes open {
+  from { transform: rotate(var(--shaft-angle)) scaleX(0.02); }
+  to   { transform: rotate(var(--shaft-angle)) scaleX(1); }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 60rem;
+  mix-blend-mode: difference; /* text inverts where it crosses the shaft */
+}
+
+.hero h1 {
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(3.75rem, 12vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.hero h1 span { display: block; }
+.hero h1 span:nth-child(2) { padding-left: 0.12em; }
+
+.lede {
+  max-width: var(--measure);
+  margin: 0 0 2rem;
+  font-size: clamp(1.0625rem, 1.5vw, 1.25rem);
+  color: var(--paper);
+}
+
+.hero-links { margin: 0; }
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.1rem;
+  border: 1.5px solid var(--paper);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--paper);
+}
+.button:hover { background: var(--paper); color: var(--ink); }
+
+.hero-mark {
+  position: relative;
+  z-index: 1;
+  width: clamp(12rem, 24vw, 22rem);
+  margin-bottom: -0.5rem;
+  mix-blend-mode: difference;
+  opacity: 0.95;
+  animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.5s;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(2rem); }
+  to   { opacity: 0.95; transform: none; }
+}
+
+/* ---------- section scaffolding ---------- */
+
+.eyebrow {
+  margin: 0 0 2.5rem;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+.eyebrow::before { content: "// "; color: var(--graphite); }
+
+/* ---------- projects ---------- */
+
+.projects {
+  padding: clamp(3rem, 8vh, 6rem) var(--gutter);
+  border-top: 1px solid var(--ink-2);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 3rem;
+}
+.projects > .eyebrow, .projects > .supporting { grid-column: 1 / -1; }
+
+.project { max-width: var(--measure); }
+.project > header { margin-bottom: 1.25rem; }
+.project h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.project h3 a { text-decoration: none; }
+.project h3 a:hover { color: var(--straw); }
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+.meta div { display: flex; gap: 0.5rem; }
+.meta dt { color: var(--ash); }
+.meta dt::after { content: ":"; }
+.meta dd { margin: 0; }
+.meta .status { color: var(--straw); }
+
+.project p { margin: 0 0 1rem; }
+.caution {
+  font-style: italic;
+  color: var(--ash);
+}
+.repo-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+}
+
+.supporting {
+  margin: 0;
+  max-width: var(--measure);
+  color: var(--ash);
+}
+
+/* ---------- the name ---------- */
+
+.name {
+  padding: clamp(3rem, 8vh, 6rem) var(--gutter);
+  border-top: 1px solid var(--ink-2);
+}
+.name blockquote {
+  margin: 0;
+  max-width: 44rem;
+  font-size: clamp(1.375rem, 2.6vw, 2rem);
+  line-height: 1.35;
+  font-weight: 400;
+}
+.name blockquote p { margin: 0; }
+
+/* ---------- colophon ---------- */
+
+.colophon {
+  padding: clamp(2.5rem, 6vh, 4rem) var(--gutter);
+  border-top: 1px solid var(--ink-2);
+  color: var(--ash);
+  font-size: 0.9375rem;
+}
+.colophon p { max-width: var(--measure); margin: 0 0 1rem; }
+.colophon .links { display: flex; flex-wrap: wrap; gap: 1.5rem; font-family: var(--mono); font-size: 0.8125rem; }
+.colophon .fine { font-size: 0.8125rem; margin: 0; }
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 40rem) {
+  .masthead nav { gap: 1rem; }
+  .masthead nav a { white-space: nowrap; }
+  .masthead nav a:nth-child(2) { display: none; }
+  .brand span { font-size: 0.95rem; }
+  .hero { grid-template-columns: 1fr; }
+  .shaft { right: -10%; width: 40vw; }
+  .hero-mark { width: 9rem; justify-self: end; margin-top: 1.5rem; margin-bottom: 0; opacity: 0.8; }
+}
+
+/* ---------- motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .shaft, .hero-mark { animation: none; }
+}
