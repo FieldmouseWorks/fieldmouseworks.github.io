@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fieldmouse Works — Open tools for closed systems</title>
-<meta name="description" content="Fieldmouse Works builds open-source software for ecosystems that are expensive, restrictive, difficult to leave, or designed around permanent vendor dependence.">
+<meta name="description" content="Fieldmouse Works builds open-source Linux package infrastructure and self-hosted software for emergency communications. Open tools for closed systems.">
 <meta property="og:title" content="Fieldmouse Works">
-<meta property="og:description" content="Open tools for closed systems.">
+<meta property="og:description" content="Open-source Linux package infrastructure and self-hosted software for emergency communications. Open tools for closed systems.">
 <meta property="og:image" content="https://fieldmouseworks.github.io/assets/og-image.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0b0b">
@@ -64,23 +64,34 @@
         <h3><a href="https://github.com/FieldmouseWorks/Conary">Conary</a></h3>
         <dl class="meta">
           <div><dt>Language</dt><dd>Rust</dd></div>
-          <div><dt>License</dt><dd>MIT</dd></div>
-          <div><dt>Status</dt><dd class="status">early preview</dd></div>
+          <div><dt>Client license</dt><dd><a href="https://github.com/FieldmouseWorks/Conary#license">MIT OR Apache-2.0</a></dd></div>
+          <div><dt>Remi license</dt><dd><a href="https://github.com/FieldmouseWorks/Conary/blob/main/apps/remi/LICENSE">AGPL-3.0-or-later</a></dd></div>
+          <div><dt>Status</dt><dd class="status">pre-alpha preview</dd></div>
         </dl>
       </header>
       <p>
-        A cross-distro Linux package manager that installs RPM, DEB, and Arch
-        packages across Fedora, Ubuntu, and Arch while preserving each
-        format's lifecycle semantics.
+        A cross-distro Linux package manager written in Rust for RPM, DEB,
+        Arch, and native CCS packages on Fedora, Ubuntu, and Arch. It preserves
+        each source format's lifecycle semantics without delegating normal
+        operations to the host package manager.
       </p>
       <p>
-        Conary runs those formats through one atomic, content-addressed
-        transaction model with history, rollback, and immutable system
-        generations. The maintainer-operated
-        <a href="https://remi.conary.io">Remi service</a> provides package
-        conversion and metadata.
+        Content-addressed storage, recorded changesets, and immutable system
+        generations make package state and recovery explicit. The workspace
+        also includes <a href="https://github.com/FieldmouseWorks/Conary#remi">Remi</a>,
+        Conary's package-conversion and signed-catalog service.
       </p>
-      <p class="caution">Early preview: use a VM or a non-critical host.</p>
+      <p>
+        Public package-feed readiness and external testing are tracked in the
+        <a href="https://github.com/FieldmouseWorks/Conary/blob/main/docs/roadmaps/launch-status.json">launch status</a>,
+        separately from the ability to build or run the client.
+      </p>
+      <p class="caution">
+        Pre-alpha preview: use a VM or disposable host. Not a production
+        replacement for apt, dnf, or pacman. Read the
+        <a href="https://github.com/FieldmouseWorks/Conary#status">current status</a>
+        before testing.
+      </p>
       <a class="repo-link" href="https://github.com/FieldmouseWorks/Conary">FieldmouseWorks/Conary <span aria-hidden="true">↗</span></a>
     </article>
 
@@ -89,29 +100,42 @@
         <h3><a href="https://github.com/FieldmouseWorks/consolebook">Consolebook</a></h3>
         <dl class="meta">
           <div><dt>Language</dt><dd>Rust</dd></div>
-          <div><dt>License</dt><dd>AGPL-3.0</dd></div>
+          <div><dt>License</dt><dd><a href="https://github.com/FieldmouseWorks/consolebook/blob/main/LICENSE">AGPL-3.0-only</a></dd></div>
           <div><dt>Status</dt><dd class="status">pre-alpha</dd></div>
         </dl>
       </header>
       <p>
-        Self-hosted training-record software for emergency communications,
-        designed around versioned programs, immutable finalized records,
-        acknowledgments, lawful disposition, recovery, and portable exports.
+        Self-hosted training-record software for emergency communications
+        centers: versioned programs, Daily Observation Reports, weekly
+        summaries, task signoffs, and trainee histories, with agency-owned
+        data and portable records.
       </p>
       <p>
-        Consolebook is an open alternative to closed public-safety training
-        and employee-record systems, with agency-owned data and self-hosting
-        as first-class requirements.
+        Implemented workflows include assignment-scoped access, immutable
+        finalized records, acknowledgments, amendments, verifiable structured
+        exports, and complete trainee packets.
       </p>
-      <p class="caution">Pre-alpha: design and buildable scaffold.</p>
+      <p>
+        Rust and Axum, SQLite, and an embedded SvelteKit interface:
+        <strong>one executable and one data directory per installation</strong>.
+        A small center should be able to operate its own system without a
+        collection of external services.
+      </p>
+      <p class="caution">
+        Pre-alpha: usable for development and evaluation only. Use invented
+        data, never production or personnel records. Retention, holds, lawful
+        disposition, attachments, PDF rendering, and stronger restore proof
+        remain on the
+        <a href="https://github.com/FieldmouseWorks/consolebook/blob/main/docs/roadmap.md">roadmap</a>.
+      </p>
       <a class="repo-link" href="https://github.com/FieldmouseWorks/consolebook">FieldmouseWorks/consolebook <span aria-hidden="true">↗</span></a>
     </article>
 
     <p class="supporting">
-      Other repositories hold supporting libraries and archived experiments
-      used by the projects above, such as
-      <a href="https://github.com/FieldmouseWorks/rpm-rs">rpm-rs</a>, a pure
-      Rust library for working with RPM files.
+      Fieldmouse Works focuses on Linux infrastructure and
+      emergency-communications software. For Peter's persistent-world games,
+      native game reconstruction, and runtime research, visit his
+      <a href="https://github.com/TusanHomichi">personal GitHub profile</a>.
     </p>
   </section>
 
@@ -139,6 +163,7 @@
   <p class="links">
     <a href="https://github.com/FieldmouseWorks">github.com/FieldmouseWorks</a>
     <a href="https://conary.io">conary.io</a>
+    <a href="mailto:peter@conary.io">peter@conary.io</a>
   </p>
   <p class="fine">Project documentation and contribution routes live in each repository.</p>
 </footer>
