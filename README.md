@@ -1,19 +1,18 @@
 # fieldmouseworks.github.io
 
-Organization landing page for [Fieldmouse Works](https://github.com/FieldmouseWorks).
+Source for [fieldmouseworks.com](https://fieldmouseworks.com), the
+[Fieldmouse Works](https://github.com/FieldmouseWorks) landing page.
 
-Static HTML + CSS, no build step. GitHub Pages serves the repo root.
+Static HTML + CSS, no build step.
 
 - `index.html` / `style.css` — the page
 - `assets/` — mark, favicons, Open Graph image (from the logo kit)
-- `.nojekyll` — tells Pages not to run Jekyll
 
 ## Deploy
 
-Push to `main` in the `FieldmouseWorks/fieldmouseworks.github.io` repository and
-enable Pages (Settings → Pages → Deploy from branch → `main` / root).
+Push to `main`. The Fieldmouse Works host checks this repository every five
+minutes and publishes the newest `main` as fieldmouseworks.com, served by nginx.
+Everything in the repository except this README and dotfiles is public on the
+site.
 
-## Custom domain
-
-When `fieldmouseworks.com` is registered, add a `CNAME` file containing the
-domain, point DNS at GitHub Pages, and update the `og:image` URL in `index.html`.
+GitHub Pages is off; the repository keeps its original name.
