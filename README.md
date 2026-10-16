@@ -1,4 +1,4 @@
-# fieldmouseworks.github.io
+# website
 
 Source for [fieldmouseworks.com](https://fieldmouseworks.com), the
 [Fieldmouse Works](https://github.com/FieldmouseWorks) landing page.
@@ -15,6 +15,5 @@ minutes and publishes the newest `main` as fieldmouseworks.com, served by nginx.
 Everything in the repository except this README and dotfiles is public on the
 site.
 
-GitHub Pages cannot be turned off for an `<org>.github.io` repository, so
-fieldmouseworks.github.io still serves the same files. The page's canonical link
-names fieldmouseworks.com.
+GitHub Pages is off. This repository was `fieldmouseworks.github.io` until
+2026-10-16, when it was renamed so that Pages could be turned off.
