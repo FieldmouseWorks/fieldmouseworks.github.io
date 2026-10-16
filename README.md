@@ -15,4 +15,6 @@ minutes and publishes the newest `main` as fieldmouseworks.com, served by nginx.
 Everything in the repository except this README and dotfiles is public on the
 site.
 
-GitHub Pages is off; the repository keeps its original name.
+GitHub Pages cannot be turned off for an `<org>.github.io` repository, so
+fieldmouseworks.github.io still serves the same files. The page's canonical link
+names fieldmouseworks.com.
