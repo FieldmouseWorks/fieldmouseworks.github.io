@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fieldmouse Works — Open tools for closed systems</title>
-<meta name="description" content="Fieldmouse Works builds open-source Linux package infrastructure and self-hosted software for emergency communications. Open tools for closed systems.">
+<meta name="description" content="Fieldmouse Works builds open-source upgrade paths for old Linux machines and self-hosted software for emergency communications. Open tools for closed systems.">
 <meta property="og:title" content="Fieldmouse Works">
-<meta property="og:description" content="Open-source Linux package infrastructure and self-hosted software for emergency communications. Open tools for closed systems.">
+<meta property="og:description" content="Open-source upgrade paths for old Linux machines and self-hosted software for emergency communications. Open tools for closed systems.">
 <meta property="og:image" content="https://fieldmouseworks.github.io/assets/og-image.png">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0b0b0b">
@@ -61,38 +61,38 @@
 
     <article class="project">
       <header>
-        <h3><a href="https://github.com/FieldmouseWorks/Conary">Conary</a></h3>
+        <h3><a href="https://github.com/FieldmouseWorks/wend">wend</a></h3>
         <dl class="meta">
-          <div><dt>Language</dt><dd>Rust</dd></div>
-          <div><dt>Client license</dt><dd><a href="https://github.com/FieldmouseWorks/Conary#license">MIT OR Apache-2.0</a></dd></div>
-          <div><dt>Remi license</dt><dd><a href="https://github.com/FieldmouseWorks/Conary/blob/main/apps/remi/LICENSE">AGPL-3.0-or-later</a></dd></div>
-          <div><dt>Status</dt><dd class="status">pre-alpha preview</dd></div>
+          <div><dt>Language</dt><dd>Python, Rust</dd></div>
+          <div><dt>License</dt><dd><a href="https://github.com/FieldmouseWorks/wend#license">MIT OR Apache-2.0</a></dd></div>
+          <div><dt>Status</dt><dd class="status">early</dd></div>
         </dl>
       </header>
       <p>
-        A cross-distro Linux package manager written in Rust for RPM, DEB,
-        Arch, and native CCS packages on Fedora, Ubuntu, and Arch. It preserves
-        each source format's lifecycle semantics without delegating normal
-        operations to the host package manager.
+        Upgrade a 2007 server to today, one release at a time, along a path
+        someone already proved works. wend is a map of small, reviewed fixes
+        for the places where a plain release upgrade breaks, pinned into
+        release-to-release routes. The machine's native package manager stays
+        in charge.
       </p>
       <p>
-        Content-addressed storage, recorded changesets, and immutable system
-        generations make package state and recovery explicit. The workspace
-        also includes <a href="https://github.com/FieldmouseWorks/Conary#remi">Remi</a>,
-        Conary's package-conversion and signed-catalog service.
+        Every route carries evidence: replays from scratch on test machines in
+        which every health check stayed green. Routes with passing replays now
+        cover Debian 4.0 etch to Debian 13, Ubuntu 14.04 to 26.04, and
+        CentOS 5, 7, and 8 to AlmaLinux 10.
       </p>
       <p>
-        Public package-feed readiness and external testing are tracked in the
-        <a href="https://github.com/FieldmouseWorks/Conary/blob/main/docs/roadmaps/launch-status.json">launch status</a>,
-        separately from the ability to build or run the client.
+        A static Rust client is in progress. It will fingerprint a machine,
+        pick a route, snapshot before each hop, and roll back if a check fails,
+        with no model and no network beyond the distribution's mirrors.
       </p>
       <p class="caution">
-        Pre-alpha preview: use a VM or disposable host. Not a production
-        replacement for apt, dnf, or pacman. Read the
-        <a href="https://github.com/FieldmouseWorks/Conary#status">current status</a>
-        before testing.
+        Early: routes cover userland only. Kernels, bootloaders, and reboots
+        are not covered yet, and the fix format may still change. Read the
+        <a href="https://github.com/FieldmouseWorks/wend#readme">README</a>
+        and <a href="https://github.com/FieldmouseWorks/wend/blob/main/SPEC.md">spec</a>.
       </p>
-      <a class="repo-link" href="https://github.com/FieldmouseWorks/Conary">FieldmouseWorks/Conary <span aria-hidden="true">↗</span></a>
+      <a class="repo-link" href="https://github.com/FieldmouseWorks/wend">FieldmouseWorks/wend <span aria-hidden="true">↗</span></a>
     </article>
 
     <article class="project">
@@ -101,7 +101,7 @@
         <dl class="meta">
           <div><dt>Language</dt><dd>Rust</dd></div>
           <div><dt>License</dt><dd><a href="https://github.com/FieldmouseWorks/consolebook/blob/main/LICENSE">AGPL-3.0-only</a></dd></div>
-          <div><dt>Status</dt><dd class="status">pre-alpha</dd></div>
+          <div><dt>Status</dt><dd class="status">pre-alpha, <a href="https://github.com/FieldmouseWorks/consolebook/releases/latest">v0.3.0</a></dd></div>
         </dl>
       </header>
       <p>
@@ -112,20 +112,22 @@
       </p>
       <p>
         Implemented workflows include assignment-scoped access, immutable
-        finalized records, acknowledgments, amendments, verifiable structured
-        exports, and complete trainee packets.
+        finalized records, acknowledgments, amendments, retention policies and
+        holds, verifiable record exports, trainee packets, and a complete
+        installation export that carries everything except credentials.
       </p>
       <p>
         Rust and Axum, SQLite, and an embedded SvelteKit interface:
-        <strong>one executable and one data directory per installation</strong>.
-        A small center should be able to operate its own system without a
-        collection of external services.
+        <strong>one executable and one data directory per installation</strong>,
+        installed and upgraded with one command. Every upgrade that migrates
+        the database takes a validated backup first. A small center should be
+        able to operate its own system without a collection of external
+        services.
       </p>
       <p class="caution">
         Pre-alpha: usable for development and evaluation only. Use invented
-        data, never production or personnel records. Retention, holds, lawful
-        disposition, attachments, PDF rendering, and stronger restore proof
-        remain on the
+        data, never production or personnel records. Confirmed disposition,
+        deterministic PDFs, and restore drills on real hosts remain on the
         <a href="https://github.com/FieldmouseWorks/consolebook/blob/main/docs/roadmap.md">roadmap</a>.
       </p>
       <a class="repo-link" href="https://github.com/FieldmouseWorks/consolebook">FieldmouseWorks/consolebook <span aria-hidden="true">↗</span></a>
@@ -133,8 +135,8 @@
 
     <p class="supporting">
       Fieldmouse Works focuses on Linux infrastructure and
-      emergency-communications software. For Peter's persistent-world games,
-      native game reconstruction, and runtime research, visit his
+      emergency-communications software. For Peter's native game
+      reconstruction, persistent-world games, and runtime research, visit his
       <a href="https://github.com/TusanHomichi">personal GitHub profile</a>.
     </p>
   </section>
@@ -162,7 +164,6 @@
   </p>
   <p class="links">
     <a href="https://github.com/FieldmouseWorks">github.com/FieldmouseWorks</a>
-    <a href="https://conary.io">conary.io</a>
     <a href="mailto:peter@conary.io">peter@conary.io</a>
   </p>
   <p class="fine">Project documentation and contribution routes live in each repository.</p>
